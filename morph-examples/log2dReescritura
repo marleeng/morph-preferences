@@ -1,0 +1,43 @@
+MorphBaseRunnerFactory running morph-rdb 3.12.5 ...
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - MorphBaseRunnerFactory running morph-rdb 3.12.5 ...
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Opening database connection.
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Connected to Database: jdbc:exa:192.168.56.101:8563 with User: sys
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.model.R2RMLMappingDocument$ - Parsing mapping document skyline-examples\dataset1-mapping-exasol.ttl
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - Setting output to skyline-examples\dataset1-query01-result-exasol.xml
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - reading query file: skyline-examples\dataset1-query01.rq
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator -
+this.mapInferredTypes = ?s1 -> Set(TriplesDataset)
+?s2 -> Set(TriplesDataset)
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator - opLeftJoin = (leftjoin
+  (bgp
+    (triple ?s1 <http://example.com/ns#d1> ?d1s1)
+    (triple ?s1 <http://example.com/ns#d2> ?d2s1)
+  )
+  (bgp
+    (triple ?s1 <http://example.com/ns#d1> ?d1s1)
+    (triple ?s1 <http://example.com/ns#d2> ?d2s1)
+    (triple ?s2 <http://example.com/ns#d1> ?d1s2)
+    (triple ?s2 <http://example.com/ns#d2> ?d2s2)
+  )
+  (&& (&& (>= ?d2s2 ?d2s1) (>= ?d1s2 ?d1s1)) (|| (> ?d2s2 ?d2s1) (> ?d1s2 ?d1s1))))
+
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator - Query translation time = 117 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Executing query ...
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Executing query:
+SELECT V_6699.mappingid_s1 AS mappingid_s1,V_6699.var_d1s1 AS d1s1,V_6699.mappingid_d1s1 AS mappingid_d1s1,V_6699.var_d2s1 AS d2s1,V_6699.mappingid_d2s1 AS mappingid_d2s1,V_6699.var_s1 AS s1
+FROM  ( SELECT V_97093.id AS var_s1,864221358 AS mappingid_s1,'http://example.com/ns#d1' AS uri_d11218762361,'http://example.com/ns#d2' AS uri_d21218762392,V_97093.d1 AS var_d1s1,1828508781 AS mappingid_d1s1,V_97093.d2 AS var_d2s1,1376017854 AS mappingid_d2s1
+FROM i10d10000 V_97093
+WHERE ((V_97093.d1 IS NOT NULL) AND (V_97093.d2 IS NOT NULL))
+ ) V_6699
+ LEFT JOIN  ( SELECT V_18196.d2 AS var_d2s2,V_18196.id AS var_s2,V_18196.d1 AS var_d1s2,1828508781 AS mappingid_d1s2,864221358 AS mappingid_s1,1828508781 AS mappingid_d1s1,1376017854 AS mappingid_d2s2,V_72787.d2 AS var_d2s1,'http://example.com/ns#d1' AS uri_d11218762361,'http://example.com/ns#d2' AS uri_d21218762392,1376017854 AS mappingid_d2s1,864221358 AS mappingid_s2,V_72787.d1 AS var_d1s1,V_72787.id AS var_s1
+FROM i10d10000 V_72787 INNER JOIN i10d10000 V_18196 ON ((V_18196.d1 IS NOT NULL) AND (V_18196.d2 IS NOT NULL))
+WHERE (((V_72787.d1 IS NOT NULL) AND (V_72787.d2 IS NOT NULL)) AND (((V_18196.d2 >= V_72787.d2) AND (V_18196.d1 >= V_72787.d1)) AND ((V_18196.d2 > V_72787.d2) OR (V_18196.d1 > V_72787.d1))))
+ ) V_2235 ON (((V_6699.var_d1s1 = V_2235.var_d1s1) OR (V_2235.var_d1s1 IS NULL)) AND (V_6699.var_s1 = V_2235.var_s1) AND ((V_6699.var_d2s1 = V_2235.var_d2s1) OR (V_2235.var_d2s1 IS NULL)))
+WHERE (NOT (V_2235.var_s2 IS NOT NULL))
+
+[main] INFO es.upm.fi.dia.oeg.morph.base.querytranslator.engine.MorphXMLQueryResultWriter - 11 instance(s) retrieved
+[main] INFO es.upm.fi.dia.oeg.morph.base.querytranslator.engine.QueryResultTranslator - Result generation time = 14519 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - Running time = 14637 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - errorCode = 0
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - status = success
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - **********************DONE****************************

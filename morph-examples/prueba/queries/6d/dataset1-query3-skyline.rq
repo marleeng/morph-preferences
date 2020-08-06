@@ -1,0 +1,12 @@
+PREFIX ex: <http://example.com/>
+
+SELECT ?s1 ?d3s1 ?d10s1 ?d6s1 ?d7s1 ?d8s1 ?d9s1
+WHERE { 
+?s1 ex:d3 ?d3s1 .
+?s1 ex:d10 ?d10s1 .
+?s1 ex:d6 ?d6s1 .
+?s1 ex:d7 ?d7s1 .
+?s1 ex:d8 ?d8s1 .
+?s1 ex:d9 ?d9s1 .
+}
+SKYLINE OF ?d3s1 MIN, ?d10s1 MIN, ?d6s1 MIN, ?d7s1 MAX, ?d8s1 MAX, ?d9s1 MAX

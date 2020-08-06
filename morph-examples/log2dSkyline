@@ -1,0 +1,24 @@
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBProperties - reading configuration file : skyline-examples\dataset1-query01-skyline-exasol.morph.properties
+MorphBaseRunnerFactory running morph-rdb 3.12.5 ...
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - MorphBaseRunnerFactory running morph-rdb 3.12.5 ...
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Opening database connection.
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Connected to Database: jdbc:exa:192.168.56.101:8563 with User: sys
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.model.R2RMLMappingDocument$ - Parsing mapping document skyline-examples\dataset1-mapping-exasol.ttl
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - Setting output to skyline-examples\dataset1-query01-skyline-result-exasol.xml
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - reading query file: skyline-examples\dataset1-query01-skyline.rq
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator -
+this.mapInferredTypes = ?s1 -> Set(TriplesDataset)
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator - Query translation time = 70 ms.
+lista Map(?d1s1 -> List("V_61205"."d1"), ?s1 -> List("V_61205"."id"), ?d2s1 -> List("V_61205"."d2"))
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Executing query ...
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Executing query:
+SELECT 1037163664 AS mappingid_d2s1,V_61205.d1 AS d1s1,V_61205.d2 AS d2s1,839771540 AS mappingid_d1s1,1648700617 AS mappingid_s1,V_61205.id AS s1
+FROM i10d10000 V_61205
+WHERE ((V_61205.d1 IS NOT NULL) AND (V_61205.d2 IS NOT NULL))
+ PREFERRING HIGH V_61205.d1 PLUS HIGH V_61205.d2
+[main] INFO es.upm.fi.dia.oeg.morph.base.querytranslator.engine.MorphXMLQueryResultWriter - 11 instance(s) retrieved
+[main] INFO es.upm.fi.dia.oeg.morph.base.querytranslator.engine.QueryResultTranslator - Result generation time = 35 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - Running time = 110 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - errorCode = 0
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - status = success
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - **********************DONE****************************

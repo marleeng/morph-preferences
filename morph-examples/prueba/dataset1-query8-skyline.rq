@@ -1,0 +1,9 @@
+PREFIX ex: <http://example.com/>
+
+SELECT (count(distinct ?s1) as ?count)
+WHERE { 
+?s1 ex:d10 ?d10s1 .
+?s1 ex:d8 ?d8s1 .
+?s1 ex:d9 ?d9s1 .
+}
+SKYLINE OF ?d10s1 MIN, ?d8s1 MIN, ?d9s1 MIN

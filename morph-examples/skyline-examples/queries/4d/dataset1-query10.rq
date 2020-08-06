@@ -1,0 +1,21 @@
+PREFIX ex: <http://example.com/>
+
+SELECT ?s1 ?d9s1 ?d4s1 ?d5s1 ?d1s1
+WHERE { 
+?s1 ex:d9 ?d9s1 .
+?s1 ex:d4 ?d4s1 .
+?s1 ex:d5 ?d5s1 .
+?s1 ex:d1 ?d1s1 .
+OPTIONAL { 
+?s1 ex:d9 ?d9s1 .
+?s2 ex:d9 ?d9s2 .
+?s1 ex:d4 ?d4s1 .
+?s2 ex:d4 ?d4s2 .
+?s1 ex:d5 ?d5s1 .
+?s2 ex:d5 ?d5s2 .
+?s1 ex:d1 ?d1s1 .
+?s2 ex:d1 ?d1s2 .
+FILTER ( ?d9s2 >= ?d9s1 && ?d4s2 >= ?d4s1 && ?d5s2 >= ?d5s1 && ?d1s2 <= ?d1s1 && ( ?d9s2 > ?d9s1 || ?d4s2 > ?d4s1 || ?d5s2 > ?d5s1 || ?d1s2 < ?d1s1  ) )
+}
+	FILTER (!BOUND(?s2))
+}

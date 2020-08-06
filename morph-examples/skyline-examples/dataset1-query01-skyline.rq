@@ -1,0 +1,11 @@
+PREFIX ex: <http://example.com/>
+
+SELECT (COUNT(?s1) as ?cuenta)
+WHERE { 
+?s1 ex:d4 ?d4s1 .
+?s1 ex:d9 ?d9s1 .
+?s1 ex:d3 ?d3s1 .
+?s1 ex:d5 ?d5s1 .
+?s1 ex:d6 ?d6s1 .
+}
+PREFERRING LOWEST ?d4s1 AND LOWEST ?d9s1 AND HIGHEST ?d3s1 AND HIGHEST ?d5s1 AND DIFF ?d6s1

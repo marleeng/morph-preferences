@@ -1,0 +1,53 @@
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBProperties - reading configuration file : skyline-examples\dataset1-query04-exasol.morph.properties
+MorphBaseRunnerFactory running morph-rdb 3.12.5 ...
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - MorphBaseRunnerFactory running morph-rdb 3.12.5 ...
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Opening database connection.
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Connected to Database: jdbc:exa:192.168.56.101:8563 with User: sys
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.model.R2RMLMappingDocument$ - Parsing mapping document skyline-examples\dataset1-mapping-exasol.ttl
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - Setting output to skyline-examples\dataset1-query04-result-exasol.xml
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunnerFactory - reading query file: skyline-examples\dataset1-query04.rq
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator -
+this.mapInferredTypes = ?s1 -> Set(TriplesDataset)
+?s2 -> Set(TriplesDataset)
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator - opLeftJoin = (leftjoin
+  (bgp
+    (triple ?s1 <http://example.com/ns#d1> ?d1s1)
+    (triple ?s1 <http://example.com/ns#d2> ?d2s1)
+    (triple ?s1 <http://example.com/ns#d3> ?d3s1)
+    (triple ?s1 <http://example.com/ns#d4> ?d4s1)
+    (triple ?s1 <http://example.com/ns#d5> ?d5s1)
+  )
+  (bgp
+    (triple ?s1 <http://example.com/ns#d1> ?d1s1)
+    (triple ?s1 <http://example.com/ns#d2> ?d2s1)
+    (triple ?s1 <http://example.com/ns#d3> ?d3s1)
+    (triple ?s1 <http://example.com/ns#d4> ?d4s1)
+    (triple ?s1 <http://example.com/ns#d5> ?d5s1)
+    (triple ?s2 <http://example.com/ns#d1> ?d1s2)
+    (triple ?s2 <http://example.com/ns#d2> ?d2s2)
+    (triple ?s2 <http://example.com/ns#d3> ?d3s2)
+    (triple ?s2 <http://example.com/ns#d4> ?d4s2)
+    (triple ?s2 <http://example.com/ns#d5> ?d5s2)
+  )
+  (&& (&& (&& (&& (&& (>= ?d5s2 ?d5s1) (>= ?d4s2 ?d4s1)) (>= ?d3s2 ?d3s1)) (>= ?d2s2 ?d2s1)) (>= ?d1s2 ?d1s1)) (|| (|| (|| (|| (> ?d5s2 ?d5s1) (> ?d4s2 ?d4s1)) (> ?d3s2 ?d3s1)) (> ?d2s2 ?d2s1)) (> ?d1s2 ?d1s1))))
+
+[main] INFO es.upm.fi.dia.oeg.morph.rdb.querytranslator.MorphRDBSkylineQueryTranslator - Query translation time = 154 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Executing query ...
+[main] INFO es.upm.fi.dia.oeg.morph.base.DBUtility$ - Executing query:
+SELECT V_9383.var_d5s1 AS d5s1,V_9383.mappingid_d4s1 AS mappingid_d4s1,V_9383.var_d4s1 AS d4s1,V_9383.mappingid_s1 AS mappingid_s1,V_9383.var_d1s1 AS d1s1,V_9383.mappingid_d1s1 AS mappingid_d1s1,V_9383.var_d2s1 AS d2s1,V_9383.mappingid_d5s1 AS mappingid_d5s1,V_9383.mappingid_d2s1 AS mappingid_d2s1,V_9383.var_d3s1 AS d3s1,V_9383.mappingid_d3s1 AS mappingid_d3s1,V_9383.var_s1 AS s1
+FROM  ( SELECT V_84596.id AS var_s1,864221358 AS mappingid_s1,'http://example.com/ns#d1' AS uri_d11218762361,'http://example.com/ns#d2' AS uri_d21218762392,'http://example.com/ns#d3' AS uri_d31218762423,'http://example.com/ns#d4' AS uri_d41218762454,'http://example.com/ns#d5' AS uri_d51218762485,V_84596.d1 AS var_d1s1,1828508781 AS mappingid_d1s1,V_84596.d2 AS var_d2s1,1376017854 AS mappingid_d2s1,V_84596.d3 AS var_d3s1,1732663543 AS mappingid_d3s1,V_84596.d4 AS var_d4s1,1552870927 AS mappingid_d4s1,V_84596.d5 AS var_d5s1,1448805967 AS mappingid_d5s1
+FROM i10d10000 V_84596
+WHERE ((V_84596.d2 IS NOT NULL) AND (V_84596.d3 IS NOT NULL) AND (V_84596.d4 IS NOT NULL) AND (V_84596.d1 IS NOT NULL) AND (V_84596.d5 IS NOT NULL))
+ ) V_9383
+ LEFT JOIN  ( SELECT V_16377.d3 AS var_d3s2,V_16377.d2 AS var_d2s2,V_16377.id AS var_s2,V_16377.d1 AS var_d1s2,1552870927 AS mappingid_d4s1,'http://example.com/ns#d3' AS uri_d31218762423,1828508781 AS mappingid_d1s2,1448805967 AS mappingid_d5s2,864221358 AS mappingid_s1,1828508781 AS mappingid_d1s1,1448805967 AS mappingid_d5s1,1376017854 AS mappingid_d2s2,'http://example.com/ns#d4' AS uri_d41218762454,V_27708.d3 AS var_d3s1,V_27708.d2 AS var_d2s1,V_16377.d4 AS var_d4s2,'http://example.com/ns#d1' AS uri_d11218762361,'http://example.com/ns#d2' AS uri_d21218762392,1376017854 AS mappingid_d2s1,V_16377.d5 AS var_d5s2,1732663543 AS mappingid_d3s2,V_27708.d4 AS var_d4s1,864221358 AS mappingid_s2,1732663543 AS mappingid_d3s1,1552870927 AS mappingid_d4s2,V_27708.d5 AS var_d5s1,V_27708.d1 AS var_d1s1,V_27708.id AS var_s1,'http://example.com/ns#d5' AS uri_d51218762485
+FROM i10d10000 V_27708 INNER JOIN i10d10000 V_16377 ON ((V_16377.d3 IS NOT NULL) AND (V_16377.d1 IS NOT NULL) AND (V_16377.d2 IS NOT NULL) AND (V_16377.d5 IS NOT NULL) AND (V_16377.d4 IS NOT NULL))
+WHERE (((V_27708.d2 IS NOT NULL) AND (V_27708.d1 IS NOT NULL) AND (V_27708.d3 IS NOT NULL) AND (V_27708.d4 IS NOT NULL) AND (V_27708.d5 IS NOT NULL)) AND ((((((V_16377.d5 >= V_27708.d5) AND (V_16377.d4 >= V_27708.d4)) AND (V_16377.d3 >= V_27708.d3)) AND (V_16377.d2 >= V_27708.d2)) AND (V_16377.d1 >= V_27708.d1)) AND (((((V_16377.d5 > V_27708.d5) OR (V_16377.d4 > V_27708.d4)) OR (V_16377.d3 > V_27708.d3)) OR (V_16377.d2 > V_27708.d2)) OR (V_16377.d1 > V_27708.d1))))
+ ) V_4208 ON (((V_9383.var_d3s1 = V_4208.var_d3s1) OR (V_4208.var_d3s1 IS NULL)) AND (V_9383.var_s1 = V_4208.var_s1) AND ((V_9383.var_d5s1 = V_4208.var_d5s1) OR (V_4208.var_d5s1 IS NULL)) AND ((V_9383.var_d4s1 = V_4208.var_d4s1) OR (V_4208.var_d4s1 IS NULL)) AND ((V_9383.var_d1s1 = V_4208.var_d1s1) OR (V_4208.var_d1s1 IS NULL)) AND ((V_9383.var_d2s1 = V_4208.var_d2s1) OR (V_4208.var_d2s1 IS NULL)))
+WHERE (NOT (V_4208.var_s2 IS NOT NULL))
+
+[main] INFO es.upm.fi.dia.oeg.morph.base.querytranslator.engine.MorphXMLQueryResultWriter - 458 instance(s) retrieved
+[main] INFO es.upm.fi.dia.oeg.morph.base.querytranslator.engine.QueryResultTranslator - Result generation time = 7305 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - Running time = 7460 ms.
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - errorCode = 0
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - status = success
+[main] INFO es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner - **********************DONE****************************

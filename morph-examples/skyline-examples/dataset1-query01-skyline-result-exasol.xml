@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sparql>
+    <head>
+        <variable name="cuenta"/>
+    </head>
+    <results>
+        <result>
+            <binding name="cuenta">
+                <literal>10000</literal>
+            </binding>
+        </result>
+    </results>
+</sparql>
