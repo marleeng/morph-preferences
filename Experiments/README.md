@@ -1,6 +1,6 @@
 # Morph-Skyline++
 
-##How to deploy
+# How to deploy
 Firstly, copy the mapping file, the queries and the properties files from the corresponding directories to your directory
 
 Then, start Morph-Skyline++:
